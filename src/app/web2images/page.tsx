@@ -21,7 +21,7 @@ export default function AnimatedScene() {
       name: "Cinematic Brown",
       // class: "bg-gradient-to-b from-[#1a0f00] via-[#2a1d00] to-[#000000]",
       // class:"bg-[#1a0f00] bg-[radial-gradient(circle_at_top,_#1a0f00_0%,_#2a1d00_0%,_#000000_90%)]"
-      class:"bg-[#1a0f00] bg-[radial-gradient(circle_at_50%_45%,_#1a0f00_0%,_#2a1d00_50%,_#000000_95%)]"
+      class:"bg-[#1a0f00] bg-[radial-gradient(circle_at_50%_45%,_#1a0f00_0%,_#2a1d00_10%,_#000000_95%)]"
     },
     {
       name: "Starry Night",
