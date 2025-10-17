@@ -183,7 +183,7 @@ export default function AnimatedScene() {
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6 w-full">
           {/* Header Text */}
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-2 text-gray-700">ចំណងជើង (Header)</label>
+            <label className="text-sm font-semibold mb-2 text-gray-700">ចំណងជើងខាងលើ</label>
             <input
               type="text"
               value={headerText}
@@ -195,7 +195,7 @@ export default function AnimatedScene() {
 
           {/* Chinese Text */}
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-2 text-gray-700">ភាសាចិន (Chinese)</label>
+            <label className="text-sm font-semibold mb-2 text-gray-700">ភាសាចិន</label>
             <input
               type="text"
               value={chineseText}
@@ -207,7 +207,7 @@ export default function AnimatedScene() {
 
           {/* Pinyin */}
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-2 text-gray-700">ភីនយីន (Pinyin)</label>
+            <label className="text-sm font-semibold mb-2 text-gray-700">Pinyin</label>
             <input
               type="text"
               value={pinyinText}
@@ -219,7 +219,7 @@ export default function AnimatedScene() {
 
           {/* Khmer Pinyin */}
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-2 text-gray-700">ភីនយីនខ្មែរ (Khmer Pinyin)</label>
+            <label className="text-sm font-semibold mb-2 text-gray-700">Khmer Pinyin</label>
             <input
               type="text"
               value={khmerPinyinText}
@@ -231,7 +231,7 @@ export default function AnimatedScene() {
 
           {/* Khmer Translation */}
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-2 text-gray-700">ភាសាខ្មែរ (Khmer)</label>
+            <label className="text-sm font-semibold mb-2 text-gray-700">ភាសាខ្មែរ</label>
             <input
               type="text"
               value={khmerText}
@@ -243,7 +243,7 @@ export default function AnimatedScene() {
 
           {/* English Translation */}
           <div className="flex flex-col">
-            <label className="text-sm font-semibold mb-2 text-gray-700">ភាសាអង់គ្លេស (English)</label>
+            <label className="text-sm font-semibold mb-2 text-gray-700">English</label>
             <input
               type="text"
               value={englishText}
