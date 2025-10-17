@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+.bayon {
+  font-family: var(--font-bayon);
+}
+
+.caveat {
+  font-family: var(--font-caveat);
+}
+
+.suwannaphum {
+  font-family: var(--font-suwannaphum);
+}
+.hanuman {
+  font-family: var(--font-hanuman);
+}
 :root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;
