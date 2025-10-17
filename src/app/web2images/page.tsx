@@ -19,11 +19,13 @@ export default function AnimatedScene() {
   const gradients = [
     {
       name: "Cinematic Brown",
-      class: "bg-gradient-to-b from-[#1a0f00] via-[#2a1d00] to-[#000000]",
+      // class: "bg-gradient-to-b from-[#1a0f00] via-[#2a1d00] to-[#000000]",
+      // class:"bg-[#1a0f00] bg-[radial-gradient(circle_at_top,_#1a0f00_0%,_#2a1d00_0%,_#000000_90%)]"
+      class:"bg-[#1a0f00] bg-[radial-gradient(circle_at_50%_45%,_#1a0f00_0%,_#2a1d00_50%,_#000000_95%)]"
     },
     {
       name: "Starry Night",
-      class: "bg-[#05070b] bg-[radial-gradient(circle_at_top,_rgba(25,48,92,0.8)_0%,_rgba(5,7,11,1)_100%)]",
+      class: "bg-[#05070b] bg-[radial-gradient(circle_at_top,_rgba(25,48,92,0.8)_0%,_rgba(5,7,11,1)_90%)]",
     },
     {
       name: "Ocean Blue",
