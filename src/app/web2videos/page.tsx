@@ -2,9 +2,23 @@
 
 import React, { useRef, useState, useEffect } from "react";
 import html2canvas from "html2canvas";
-import { FFmpeg } from "@ffmpeg/ffmpeg";
-import { fetchFile, toBlobURL } from "@ffmpeg/util";
-import { FaArrowDown } from "react-icons/fa";
+// import { FFmpeg } from "@ffmpeg/ffmpeg";
+// import { fetchFile, toBlobURL } from "@ffmpeg/util";
+
+// Dynamically import FFmpeg only on client side
+let FFmpeg: any;
+let fetchFile: any;
+let toBlobURL: any;
+
+if (typeof window !== 'undefined') {
+  import('@ffmpeg/ffmpeg').then(module => {
+    FFmpeg = module.FFmpeg;
+  });
+  import('@ffmpeg/util').then(module => {
+    fetchFile = module.fetchFile;
+    toBlobURL = module.toBlobURL;
+  });
+}
 
 export default function AnimatedScene() {
   const sceneRef = useRef<HTMLDivElement>(null);
@@ -14,7 +28,9 @@ export default function AnimatedScene() {
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   // const [isLoading, setIsLoading] = useState(false);
   const [progress, setProgress] = useState("");
-  const ffmpegRef = useRef(new FFmpeg());
+
+  // Safe FFmpeg ref initialization - don't call constructor on server
+  const ffmpegRef = useRef<any>(null);
   const [isReady, setIsReady] = useState(false);
 
   const [headerText, setHeaderText] = useState("រៀនភាសាចិនដោយខ្លួនឯង");
@@ -50,15 +66,25 @@ export default function AnimatedScene() {
   const [selectedGradient, setSelectedGradient] = useState(gradients[0].class);
 
   useEffect(() => {
-    loadFFmpeg();
+    // Only load FFmpeg on client side
+    if (typeof window !== 'undefined') {
+      loadFFmpeg();
+    }
   }, []);
 
 
   const loadFFmpeg = async () => {
+    if (!FFmpeg || !ffmpegRef.current) return;
+
     const ffmpeg = ffmpegRef.current;
 
-    ffmpeg.on("log", ({ message }) => console.log(message));
-    ffmpeg.on("progress", ({ progress }) => setProgress(`Progress: ${Math.round(progress * 100)}%`));
+    ffmpeg.on("log", ({ message }: any) => {
+      console.log(message);
+    });
+
+    ffmpeg.on("progress", ({ progress }: any) => {
+      setProgress(`Progress: ${Math.round(progress * 100)}%`);
+    });
 
     try {
       const baseURL = "https://unpkg.com/@ffmpeg/core@0.12.6/dist/umd";
@@ -67,9 +93,9 @@ export default function AnimatedScene() {
         wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, "application/wasm"),
       });
       setIsReady(true);
-      console.log("✅ FFmpeg loaded successfully");
+      console.log("FFmpeg loaded successfully");
     } catch (error) {
-      console.error("❌ Failed to load FFmpeg:", error);
+      console.error("Failed to load FFmpeg:", error);
       setProgress("Failed to load FFmpeg. Please refresh the page.");
     }
   };
