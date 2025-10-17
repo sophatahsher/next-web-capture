@@ -83,8 +83,6 @@ export default function AnimatedScene() {
 
   return (
     <div className="flex flex-col items-center p-4 min-h-screen bg-gray-100">
-      <h1 className="text-3xl font-bold mb-6 text-gray-800">បង្កើតរូបភាព ឬ វីដេអូ</h1>
-
       {/* 🎬 Scene for capture */}
       <div
         ref={sceneRef}
